@@ -150,6 +150,15 @@ export default function Router() {
         { element: <HomePage />, index: true },
         { path: 'about-us', element: <About /> },
         { path: 'adsplify', element: <Hompage1 /> },
+
+        {
+          path: 'adsplify/chat',
+          children: [
+            { element: <AdsplifyMail />, index: true },
+            { path: 'new', element: <AdsplifyMail /> },
+            { path: ':conversationKey', element: <AdsplifyMail /> },
+          ],
+        },
         { path: 'contact-us', element: <Contact /> },
         { path: 'faqs', element: <Faqs /> },
       ],
@@ -204,3 +213,4 @@ const NotFound = Loadable(lazy(() => import('../pages/Page404')));
 const Register1 = Loadable(lazy(() => import('../pages/adsplify/Authentication/Register')));
 const Login1 = Loadable(lazy(() => import('../pages/adsplify/Authentication/Login')));
 const Hompage1 = Loadable(lazy(() => import('../pages/adsplify/homepage')));
+const AdsplifyMail = Loadable(lazy(() => import('../pages/adsplify/Mail')));
