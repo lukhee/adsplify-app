@@ -71,72 +71,78 @@ export default function Register() {
       <RootStyle>
         <HeaderStyle>
           <Logo />
-          {smUp && (
+          {/* {smUp && (
             <Typography variant="body2" sx={{ mt: { md: -2 } }}>
               Already have an account?{' '}
               <Link variant="subtitle2" component={RouterLink} to={PATH_AUTH.login}>
                 Login
               </Link>
             </Typography>
-          )}
+          )} */}
         </HeaderStyle>
 
         {mdUp && (
-          <SectionStyle>
-            <Typography variant="h3" sx={{ px: 5, mt: 10, mb: 5 }}>
-              Manage the job more effectively with Minimal
-            </Typography>
-            <Image
-              alt="register"
-              src="https://minimal-assets-api.vercel.app/assets/illustrations/illustration_register.png"
-            />
-          </SectionStyle>
-        )}
-
-        <Container>
-          <ContentStyle>
-            <Box sx={{ mb: 5, display: 'flex', alignItems: 'center' }}>
-              <Box sx={{ flexGrow: 1 }}>
-                <Typography variant="h4" gutterBottom>
-                  Get started absolutely free.
-                </Typography>
-                <Typography sx={{ color: 'text.secondary' }}>Free forever. No credit card needed.</Typography>
+          <Container maxWidth="sm">
+            <ContentStyle>
+              <Box sx={{ mb: 5, display: 'flex', alignItems: 'center' }}>
+                <Box sx={{ flexGrow: 1 }}>
+                  <Typography variant="h4" gutterBottom>
+                    Join Adsplify
+                  </Typography>
+                  {/* <Typography sx={{ color: 'text.secondary' }}>Free forever. No credit card needed.</Typography> */}
+                </Box>
+                {/* <Tooltip title={capitalCase(method)}>
+                     <>
+                       <Image
+                         disabledEffect
+                         src={`https://minimal-assets-api.vercel.app/assets/icons/auth/ic_${method}.png`}
+                         sx={{ width: 32, height: 32 }}
+                       />
+                     </>
+                   </Tooltip> */}
               </Box>
-              <Tooltip title={capitalCase(method)}>
-                <>
-                  <Image
-                    disabledEffect
-                    src={`https://minimal-assets-api.vercel.app/assets/icons/auth/ic_${method}.png`}
-                    sx={{ width: 32, height: 32 }}
-                  />
-                </>
-              </Tooltip>
-            </Box>
 
-            <RegisterForm />
+              <RegisterForm />
 
-            <Typography variant="body2" align="center" sx={{ color: 'text.secondary', mt: 3 }}>
-              By registering, I agree to Minimal&nbsp;
-              <Link underline="always" color="text.primary" href="#">
-                Terms of Service
-              </Link>
-              and
-              <Link underline="always" color="text.primary" href="#">
-                Privacy Policy
-              </Link>
-              .
-            </Typography>
-
-            {!smUp && (
               <Typography variant="body2" sx={{ mt: 3, textAlign: 'center' }}>
                 Already have an account?{' '}
                 <Link variant="subtitle2" to={PATH_AUTH.login} component={RouterLink}>
                   Login
                 </Link>
               </Typography>
-            )}
-          </ContentStyle>
-        </Container>
+              {/* <Typography variant="body2" align="center" sx={{ color: 'text.secondary', mt: 3 }}>
+                   By registering, I agree to Minimal&nbsp;
+                   <Link underline="always" color="text.primary" href="#">
+                     Terms of Service
+                   </Link>
+                   and
+                   <Link underline="always" color="text.primary" href="#">
+                     Privacy Policy
+                   </Link>
+                   .
+                 </Typography> */}
+
+              {!smUp && (
+                <Typography variant="body2" sx={{ mt: 3, textAlign: 'center' }}>
+                  Already have an account?{' '}
+                  <Link variant="subtitle2" to={PATH_AUTH.login} component={RouterLink}>
+                    Login
+                  </Link>
+                </Typography>
+              )}
+            </ContentStyle>
+          </Container>
+        )}
+
+        <ContentStyle>
+          <Typography variant="h3" sx={{ px: 5, mt: 10, mb: 5 }}>
+            Manage the job more effectively with Minimal
+          </Typography>
+          <Image
+            alt="register"
+            src="https://minimal-assets-api.vercel.app/assets/illustrations/illustration_register.png"
+          />
+        </ContentStyle>
       </RootStyle>
     </Page>
   );

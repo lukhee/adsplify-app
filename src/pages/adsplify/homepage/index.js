@@ -31,15 +31,15 @@ const ContentStyle = styled('div')(({ theme }) => ({
 
 export default function HomePage() {
   return (
-    <Page title="The starting point for your next project">
+    <Page title="Dashboard">
       <RootStyle>
         {/* <HomeHero /> */}
         <ContentStyle>
           <HomeMinimal />
 
-          <HomeHugePackElements />
+          {/* <HomeHugePackElements /> */}
 
-          <HomeDarkMode />
+          {/* <HomeDarkMode />
 
           <HomeColorPresets />
 
@@ -47,7 +47,7 @@ export default function HomePage() {
 
           <HomePricingPlans />
 
-          <HomeLookingFor />
+          <HomeLookingFor /> */}
 
           <HomeAdvertisement />
         </ContentStyle>
