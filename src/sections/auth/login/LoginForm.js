@@ -5,7 +5,7 @@ import { Link as RouterLink } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 // @mui
-import { Link, Stack, Alert, IconButton, InputAdornment } from '@mui/material';
+import { Link, Stack, Alert, IconButton, InputAdornment, Typography } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
 // routes
 import { PATH_AUTH } from '../../../routes/paths';
@@ -93,6 +93,14 @@ export default function LoginForm() {
       <LoadingButton fullWidth size="large" type="submit" variant="contained" loading={isSubmitting}>
         Login
       </LoadingButton>
+
+      <Typography  variant="body2" align="center" sx={{ color: 'text.secondary', mt: 3 }}> ________or login with socials________</Typography>
+      <br/>
+     <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
+      <LoadingButton fullWidth size="large" type="submit" variant="contained" loading={isSubmitting}>
+        Sign in with Google
+      </LoadingButton>
+      </Stack>
     </FormProvider>
   );
 }

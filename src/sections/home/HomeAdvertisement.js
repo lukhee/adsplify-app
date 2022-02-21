@@ -56,8 +56,8 @@ export default function HomeAdvertisement() {
         >
           <MotionInView variants={varFade().inDown} sx={{ color: 'common.white', mb: 5 }}>
             <Typography variant="h2">
-              Get started with
-              <br /> minimal kit today
+            Welcome to the Future of Advert
+              <br /> 
             </Typography>
           </MotionInView>
           <MotionInView variants={varFade().inDown}>

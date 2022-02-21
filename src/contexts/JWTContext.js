@@ -109,11 +109,19 @@ function AuthProvider({ children }) {
   }, []);
 
   const login = async (email, password) => {
-    const response = await axios.post('/api/account/login', {
-      email,
-      password,
-    });
-    const { accessToken, user } = response.data;
+    // const response = await axios.post('/api/account/login', {
+    //   email,
+    //   password,
+    // });
+    const accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI4ODY0YzcxNy01ODdkLTQ3MmEtOTI5YS04ZTVmMjk4MDI0ZGEtMCIsImlhdCI6MTY0NTM1MDgzMiwiZXhwIjoxNjQ1NzgyODMyfQ.x4xH5LwWWXrR8IBCQTo8iMlpU2cXJy474IO3w8BZdRs"
+    const user ={ about: "Praesent turpis. Phasellus viverra nulla ut metus varius laoreet. Phasellus tempus.",
+    address: "90210 Broadway Blvd",city: "San Francisco",country: "United States"
+    ,displayName: "Jaydon Frankie",email: "demo@minimals.cc",id: "8864c717-587d-472a-929a-8e5f298024da-0",
+    isPublic:"" ,truepassword: "demo1234",phoneNumber: "+40 777666555",
+    photoURL: "https://minimal-assets-api.vercel.app/assets/images/avatars/avatar_default.jpg"
+    ,role: "admin",
+    state: "California",zipCode: "94116"}
+    // const { accessToken, user } = response.data;
 
     setSession(accessToken);
     dispatch({

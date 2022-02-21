@@ -96,13 +96,14 @@ export default function HomeMinimal() {
             mb: { xs: 10, md: 25 },
           }}
         >
+        
+          <MotionInView variants={varFade().inDown}>
+            <Typography variant="h2">Welcome to the Future of Advert</Typography>
+          </MotionInView>
           <MotionInView variants={varFade().inUp}>
             <Typography component="div" variant="overline" sx={{ mb: 2, color: 'text.disabled' }}>
-              Minimal
+              Discover the world of adplify influencers and promoters. Find Influencers that you want to work with and create campaign with ease
             </Typography>
-          </MotionInView>
-          <MotionInView variants={varFade().inDown}>
-            <Typography variant="h2">What minimal helps you?</Typography>
           </MotionInView>
         </Box>
 

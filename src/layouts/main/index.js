@@ -34,7 +34,7 @@ export default function MainLayout() {
           }}
         >
           <Container>
-            <Logo sx={{ mb: 1, mx: 'auto' }} />
+            {/* <Logo sx={{ mb: 1, mx: 'auto' }} /> */}
 
             <Typography variant="caption" component="p">
               © All rights reserved
