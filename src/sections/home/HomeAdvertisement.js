@@ -10,7 +10,7 @@ import { MotionInView, varFade } from '../../components/animate';
 
 const ContentStyle = styled('div')(({ theme }) => ({
   maxWidth: 456,
-  margin: 'auto',
+  margin: 'auto', 
   overflow: 'hidden',
   paddingBottom: theme.spacing(10),
   borderRadius: Number(theme.shape.borderRadius) * 2,
