@@ -1,8 +1,11 @@
 // @mui
 import { styled } from '@mui/material/styles';
+import { Divider } from '@mui/material';
 // components
-import Page from '../../../components/Page';
 // sections
+
+
+import { AboutHero, AboutWhat, AboutTeam, AboutVision, AboutTestimonials } from '../../../sections/about';
 import {
   HomeHero,
   HomeMinimal,
@@ -14,6 +17,14 @@ import {
   HomeCleanInterfaces,
   HomeHugePackElements,
 } from '../../../sections/home';
+import AboutBlogs from '../../../sections/home/AboutBlogs'
+import AboutFeatured from '../../../sections/home/AboutFeatured'
+import AboutInstagram from '../../../sections/home/AboutInstagram'
+import AboutTikTok from '../../../sections/home/AboutTikTok'
+import AboutRadioStation from '../../../sections/home/AboutRadioStation'
+import AboutCategories from '../../../sections/home/AboutCategories';
+import Page from '../../../components/Page';
+
 
 // ----------------------------------------------------------------------
 
@@ -33,24 +44,16 @@ export default function HomePage() {
   return (
     <Page title="Dashboard">
       <RootStyle>
-        {/* <HomeHero /> */}
-        <ContentStyle>
-          <HomeMinimal />
 
-          {/* <HomeHugePackElements /> */}
+        <AboutVision />
 
-          {/* <HomeDarkMode />
-
-          <HomeColorPresets />
-
-          <HomeCleanInterfaces />
-
-          <HomePricingPlans />
-
-          <HomeLookingFor /> */}
-
-          <HomeAdvertisement />
-        </ContentStyle>
+        <Divider orientation="vertical" sx={{ my: 10, mx: 'auto', width: 2, height: 40 }} />
+<AboutCategories/>
+        <AboutFeatured />
+        <AboutInstagram />
+        <AboutTikTok />
+        <AboutBlogs />
+        <AboutRadioStation />
       </RootStyle>
     </Page>
   );

@@ -1,10 +1,11 @@
 // routes
+import DashboardIcon from '@mui/icons-material/Dashboard';
+import DeleteIcon from '@mui/icons-material/Delete';
 import { PATH_AUTH, PATH_DOCS, PATH_PAGE } from '../../routes/paths';
 // components
 import { PATH_AFTER_LOGIN } from '../../config';
 // components
 import Iconify from '../../components/Iconify';
-
 // ----------------------------------------------------------------------
 
 const ICON_SIZE = {
@@ -19,14 +20,24 @@ const menuConfig = [
   //   path: '/',
   // },
   {
-    title: 'Campaigns',
+    title: 'Dashboard',
     icon: <Iconify icon={'eva:home-fill'} {...ICON_SIZE} />,
     path: '/adsplify',
   },
   {
-    title: 'Messages',
+    title: 'Campaigns',
     icon: <Iconify icon={'eva:home-fill'} {...ICON_SIZE} />,
-    path: '/',
+    path: '/campaign',
+  },
+  {
+    title: 'Payment',
+    icon: <Iconify icon={'eva:home-fill'} {...ICON_SIZE} />,
+    path: '/payment',
+  },
+  {
+    title: 'Messages',
+    icon: <Iconify icon={'eva:book-open-fill'} {...ICON_SIZE} />,
+    path: '/chat',
   },
   // {
   //   title: 'Pages',
