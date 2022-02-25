@@ -1,21 +1,26 @@
+import * as React from 'react'
 import PropTypes from 'prop-types';
 import { useRef } from 'react';
 import Slider from 'react-slick';
 // @mui
 import { useTheme } from '@mui/material/styles';
-import { Box, Stack, Card, Button, Container, Typography } from '@mui/material';
+import {
+
+  IconFlagUS
+} from 'material-ui-flags';
+import { Box, Rating, Stack, Card, Button, Container, Typography, Grid, Divider, Tab, IconButton } from '@mui/material';
 // _mock_
 import { _carouselsMembers } from '../../_mock';
 // components
 import Image from '../../components/Image';
 import Iconify from '../../components/Iconify';
 import { CarouselArrows } from '../../components/carousel';
-import SocialsButton from '../../components/SocialsButton';
+
 import { MotionInView, varFade } from '../../components/animate';
 
 // ----------------------------------------------------------------------
 
-export default function AboutTeam() {
+export default function AboutFeatured() {
   const carouselRef = useRef(null);
   const theme = useTheme();
 
@@ -51,40 +56,30 @@ export default function AboutTeam() {
 
   return (
     <Container sx={{ pb: 10, textAlign: 'center' }}>
-      {/* <MotionInView variants={varFade().inDown}>
-        <Typography component="p" variant="overline" sx={{ mb: 2, color: 'text.secondary' }}>
-          Dream team
-        </Typography>
-      </MotionInView> */}
-   <Stack direction={{ xs: 'column', sm: 'row' }} spacing={100}>
-      <MotionInView variants={varFade().inUp}>
-        <Typography variant="h5" sx={{ mb: 3 }}>
-       Instagram 
-        </Typography>
-      </MotionInView>
-      <Button
-        variant="outlined"
-        color="inherit"
-        size="large"
-        endIcon={<Iconify icon={'ic:round-arrow-right-alt'} width={20} height={20} />}
-        sx={{ mx: 'auto' }}
-      >
-        View all
-      </Button>
-</Stack>
-      <MotionInView variants={varFade().inUp}>
-        <Typography
-          sx={{
-            mx: 'auto',
-            maxWidth: 630,
-            color: (theme) => (theme.palette.mode === 'light' ? 'text.secondary' : 'common.white'),
-          }}
-        >
-       Hire instagram influencers
-        </Typography>
-        
-      </MotionInView>
+    
+      <Grid container justify="space-between">
+        <Stack direction={{ xs: 'column', sm: 'row' }} spacing={100}>
 
+          <Typography variant="h5" sx={{ mb: 3 }}>
+          Featured 
+          </Typography>
+
+          <Button
+            variant="outlined"
+            color="inherit"
+            size="large"
+            endIcon={<Iconify icon={'ic:round-arrow-right-alt'} width={20} height={20} />}
+            sx={{ mx: 'auto' }}
+          >
+            View all
+          </Button>
+        </Stack>
+        <Typography inline variant="body1" align="left" sx={{
+
+          color: (theme) => (theme.palette.mode === 'light' ? 'text.secondary' : 'common.white'),
+        }}> Hire Bloggers Influencers</Typography>
+
+      </Grid>
       <Box sx={{ position: 'relative' }}>
         <CarouselArrows filled onNext={handleNext} onPrevious={handlePrevious}>
           <Slider ref={carouselRef} {...settings}>
@@ -96,7 +91,7 @@ export default function AboutTeam() {
           </Slider>
         </CarouselArrows>
       </Box>
-    
+
     </Container>
   );
 }
@@ -113,19 +108,42 @@ MemberCard.propTypes = {
 
 function MemberCard({ member }) {
   const { name, role, avatar } = member;
-
+  const [value, setValue] = React.useState(2);
   return (
     <Card key={name} sx={{ p: 1 }}>
+
+      <Image src={avatar} ratio="1/1" sx={{ borderRadius: 1.5 }} />
       <Typography variant="subtitle1" sx={{ mt: 2, mb: 0.5 }}>
         {name}
       </Typography>
+
+      <Grid container>
+        <Grid item xs>
+          {/* <IconButton><IconFlagTR /></IconButton>
+        <IconButton><IconFlagDE /></IconButton> */}
+          <IconButton><IconFlagUS /></IconButton>
+        </Grid>
+        <Divider orientation="vertical" flexItem />
+        <Grid item xs>
+          Lagos
+        </Grid>
+        <Divider orientation="vertical" flexItem>
+          ''
+        </Divider>
+        <Grid item xs>
+          $350
+        </Grid>
+      </Grid>
       <Typography variant="body2" sx={{ mb: 2, color: 'text.secondary' }}>
-        {role}
+        <Rating
+          name="simple-controlled"
+          value={value}
+          onChange={(event, newValue) => {
+            setValue(newValue);
+          }}
+        />
       </Typography>
-      <Image src={avatar} ratio="1/1" sx={{ borderRadius: 1.5 }} />
-      <Stack alignItems="center" sx={{ mt: 2, mb: 1 }}>
-        <SocialsButton sx={{ color: 'action.active' }} />
-      </Stack>
+
     </Card>
   );
 }

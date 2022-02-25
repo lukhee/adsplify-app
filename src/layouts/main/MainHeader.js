@@ -3,8 +3,12 @@ import { useSnackbar } from 'notistack';
 import { useState } from 'react';
 // @mui
 import { styled, useTheme, alpha } from '@mui/material/styles';
-import { Box,Typography, AppBar, Toolbar, Container, Divider, Stack, MenuItem  } from '@mui/material';
+import { Button, Box,Typography, AppBar, Toolbar, Container, Divider, Stack, MenuItem  } from '@mui/material';
+// redux
+import { useDispatch, useSelector } from '../../redux/store';
+import {  openModal, closeModal } from '../../redux/slices/calendar';
 // routes
+// import { useDispatch } from 'react-redux';
 import { PATH_DASHBOARD, PATH_AUTH } from '../../routes/paths';
 // hooks
 import useAuth from '../../hooks/useAuth';
@@ -21,6 +25,7 @@ import { HEADER } from '../../config';
 // components
 import Logo from '../../components/Logo';
 import Label from '../../components/Label';
+import Iconify from '../../components/Iconify';
 //
 import MenuDesktop from './MenuDesktop';
 import MenuMobile from './MenuMobile';
@@ -74,6 +79,8 @@ const ToolbarShadowStyle = styled('div')(({ theme }) => ({
 export default function MainHeader() {
   const isOffset = useOffSetTop(HEADER.MAIN_DESKTOP_HEIGHT);
 
+  const dispatch = useDispatch();
+
   const theme = useTheme();
 
   const { pathname } = useLocation();
@@ -114,6 +121,14 @@ export default function MainHeader() {
     }
   };
 
+  const handleAddEvent = () => {
+    dispatch(openModal());
+  };
+
+  const handleCloseModal = () => {
+    dispatch(closeModal());
+  };
+
   return (
     <AppBar sx={{ boxShadow: 0, bgcolor: 'transparent' }}>
       <ToolbarStyle
@@ -139,10 +154,17 @@ export default function MainHeader() {
           </Label>
           <Box sx={{ flexGrow: 1 }} />
 
-          {isDesktop && <MenuDesktop isOffset={isOffset} isHome={isHome} navConfig={navConfig} />}
+   {isDesktop && <MenuDesktop isOffset={isOffset} isHome={isHome} navConfig={navConfig} />}
+
+          <Button
+              variant="contained"
+              startIcon={<Iconify icon={'eva:plus-fill'} width={20} height={20} />}
+              onClick={handleAddEvent}
+            >
+              New Event
+            </Button>
 
           <NotificationsPopover />
-        
         
           <IconButtonAnimate
             onClick={handleOpen}
